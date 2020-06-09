@@ -16,9 +16,9 @@ if ($canPay && perch_post('paymentMethodID')) {
      * We use the stripe_intents Gateway here, instead of stripe.
      */
     perch_shop_checkout('stripe_intents', [
-        'return_url'     => 'https://yourdomain.com/checkout/complete',
+        'return_url'     => 'https://yourdomain.com/checkout/complete', // Should probably define these in your config file.
         'cancel_url'     => 'https://yourdomain.com/checkout/complete',
-        'payment_method' => perch_post('paymentMethodID'), //Pass the payment method to the gateway
+        'payment_method' => perch_post('paymentMethodID'), // Pass the payment method to the gateway
         'confirm'        => true, // Tell the gateway to confirm the gateway. Require, if you leave this out the intents gateway won't work!
     ]);
 }
