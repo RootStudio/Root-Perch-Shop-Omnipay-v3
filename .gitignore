@@ -1,0 +1,55 @@
+# --------------------
+# Global
+# --------------------
+*
+!*/
+
+# --------------------
+# Documents
+# --------------------
+!*.php
+!*.htm
+!*.html
+!*.css
+!*.scss
+!*.xml
+!*.htaccess
+!*.sql
+!*.js
+!*.md
+!*.txt
+!*.json
+!*.yml
+!*.ini
+!*.map
+!*.pem
+!*.sh
+!*.mjml
+
+# --------------------
+# Media
+# --------------------
+!*.pdf
+!*.jpg
+!*.png
+!*.gif
+!*.ico
+!*.svg
+
+# --------------------
+# Fonts
+# --------------------
+!*.woff
+!*.woff2
+!*.eot
+!*.ttf
+!*.otf
+
+# --------------------
+# Applications
+# --------------------
+!.gitignore
+!.deployignore
+!*.lock
+!Gemfile
+.idea
