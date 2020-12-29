@@ -8,6 +8,7 @@
 				break;
             case 'stripe_intents':
                 $opts = array_merge([
+                    'gateway' => 'stripe_intents',
                     'template' => 'gateways/stripe_intents_payment_form.html'
                 ], $opts);
                 return perch_shop_stripe_payment_form($opts, $return);
@@ -27,6 +28,7 @@
 				'skip-template' => false,
 				'cache'         => true,
 				'cache-ttl'     => 900,
+                'gateway'       => 'stripe',
 			];
 
 		$opts = PerchUtil::extend($default_opts, $opts);
@@ -41,8 +43,8 @@
 		$Template = $API->get('Template', 'shop');
 		$Template->set($opts['template'], 'shop');
 
-		$Gateway = PerchShop_Gateways::get('stripe');
-		$config  = PerchShop_Config::get('gateways', 'stripe');
+        $Gateway = PerchShop_Gateways::get($opts['gateway']);
+        $config  = PerchShop_Config::get('gateways', $opts['gateway']);
 		$key 	 = $Gateway->get_public_api_key($config);
 
 		$ShopRuntime = PerchShop_Runtime::fetch();
