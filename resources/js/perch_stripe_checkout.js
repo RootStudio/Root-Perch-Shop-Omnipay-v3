@@ -38,9 +38,9 @@ export class PerchStripeCheckout {
                             name: cardholderName.value,
                             email: email.value,
                             address: {
-                                line1: address,
-                                postal_code: postcode,
-                                city: city,
+                                line1: address.value,
+                                postal_code: postcode.value,
+                                city: city.value,
                                 country: 'GB'
                             }
                         }
