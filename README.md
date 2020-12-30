@@ -47,7 +47,13 @@ We create a new template called `stripe_intents_payment_form.html` in the `templ
 
 We call this template with the usual way but with the updated gateway `perch_shop_payment_form('stripe_intents')`
 
-By itself the form will do nothing so we need to add the JavaScript to get the payment method from stripe. You [resources/js/perch_stripe_checkout.js](visit resources/js/perch_stripe_checkout.js) for an example.
+By itself the form will do nothing so we need to add the JavaScript to get the payment method from stripe. You can use [resources/js/perch_stripe_checkout.js](visit resources/js/perch_stripe_checkout.js) for an example if you use a bundler, or you can use [resources/js/perch_stripe_checkout.js](visit resources/js/perch_stripe_checkout_es5.js) if you are not using a bundler.
+
+You'll most likely need to customise the JS to some degree to match your forms and if you want to add additional styling to the stripe elements.
+
+For more information on stripe elements and how to style them [visit the elements docs](https://stripe.com/docs/stripe-js)
+
+For more information on how to use the payment create the method [visit the js docs here](https://stripe.com/docs/js/payment_methods/create_payment_method)
 
 ##### Checkout
 Once the form has been submitted we need to take the payment, again this is done in the typical manner and we just need to update the gateway and a few of the arguments
