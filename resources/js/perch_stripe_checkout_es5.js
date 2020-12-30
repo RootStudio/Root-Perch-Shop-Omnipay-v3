@@ -1,16 +1,17 @@
+
 function PerchStripeCheckout ( key = '' ) {
 
     //Check if stripe has been loaded
     if ( typeof Stripe != 'undefined' ) {
         var stripe = Stripe( key );
 
-        var elements = this.stripe.elements();
+        var elements = stripe.elements();
     }
     // Get the card element container
     if ( document.querySelector( '#card-element' ) ) {
 
         // Create stripe card elements
-        var cardElement = this.elements.create( 'card', {
+        var cardElement = elements.create( 'card', {
             hidePostalCode: true
         } );
 
@@ -29,7 +30,7 @@ function PerchStripeCheckout ( key = '' ) {
         // Add listener for the form button
         cardButton.addEventListener( 'click', function( ev ) {
             // Get payment intent from stripe
-            stripe.createPaymentMethod( 'card', this.cardElement, {
+            stripe.createPaymentMethod( 'card', cardElement, {
                 billing_details: {
                     name: cardholderName.value,
                     email: email.value,
@@ -41,7 +42,7 @@ function PerchStripeCheckout ( key = '' ) {
                     }
                 }
             } ).then( function( result ) {
-
+                // set the hidden value for payment field
                 paymentMethodID.value = result.paymentMethod.id;
                 // Submit form for next step
                 form.submit();
@@ -50,6 +51,3 @@ function PerchStripeCheckout ( key = '' ) {
     }
 
 }
-
-// Call function with
-PerchStripeCheckout('pk_test_xxxxxx');
