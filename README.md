@@ -13,6 +13,37 @@ Some core shop files needed to be changed for this to work, though only new meth
 ### Gateways
 The shop gateway files have not been touched, and only the `PerchShopGateway_stripe_intents.class.php` has been added. However all the Omnipay packages were upgraded from v2 to v3 so it is quite likely that they will no longer work.
 
+You'll need to add a new config option to the shop config file the stripe keys will be the same though, unless you create new ones. You can also just rename the stripe gateway config to stripe_intents
+
+```
+'stripe' => [
+				'enabled'   => true,
+				'test_mode' => SHOP_TEST_MODE,
+				'live' => [
+					'secret_key'      => 'sk_live_xxxxxx',
+					'publishable_key' => 'pk_live_xxxxxx',
+				],
+				'test' => [
+					'secret_key'      => 'sk_test_xxxxxx',
+					'publishable_key' => 'pk_test_xxxxxx,
+				],
+			],
+
+
+            'stripe_intents' => [
+                'enabled'   => true,
+                'test_mode' => SHOP_TEST_MODE,
+                'live' => [
+                    'secret_key'      => 'sk_live_xxxxxx',
+                    'publishable_key' => 'pk_live_xxxxxx',
+                ],
+                'test' => [
+                    'secret_key'      => 'sk_test_xxxxxx',
+                    'publishable_key' => 'pk_test_xxxxxx',
+                ],
+            ],
+```
+
 ### Templates
 You'll need to update your page templates and gateway form to make use of the newest gateway. The repo contains some examples for what you would need, but I've outlined the most important below.
 
