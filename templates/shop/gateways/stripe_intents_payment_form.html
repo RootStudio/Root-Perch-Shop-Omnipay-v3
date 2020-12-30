@@ -19,3 +19,10 @@
 </form>
 
 <script src="https://js.stripe.com/v3/"></script>
+
+<script>
+    // Only needed if using the ES5 function
+    document.addEventListener('DOMContentLoaded', function() {
+        PerchStripeCheckout('<perch:shop id="publishable_key" escape="true">');
+    });
+</script>
